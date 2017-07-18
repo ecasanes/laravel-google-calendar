@@ -1,6 +1,6 @@
 {
-    "name": "spatie/laravel-google-calendar",
-    "description": "Manage events on a Google Calendar",
+    "name": "ecasanes/laravel-google-calendar-php-6",
+    "description": "Manage events on a Google Calendar (Compatible with PHP 5.9 up)",
     "keywords": [
         "spatie",
         "calendar",
