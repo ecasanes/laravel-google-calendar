@@ -9,7 +9,7 @@
         "schedule",
         "laravel-google-calendar"
     ],
-    "homepage": "https://github.com/spatie/laravel-google-calendar",
+    "homepage": "https://github.com/ecasanes/laravel-google-calendar",
     "license": "MIT",
     "authors": [
         {
