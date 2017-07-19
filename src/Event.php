@@ -142,7 +142,7 @@ class Event
 
     public function save($method = null)
     {
-        if($method){
+        if(!isset($method) || empty($method)){
             $method = $this->exists() ? 'updateEvent' : 'insertEvent';
         }
 
@@ -160,8 +160,8 @@ class Event
      */
     public function delete($eventId = null)
     {
-        if($eventId){
-            $eventId = $this->id;
+        if(!isset($eventId) || empty($eventId)){
+            $eventId =  $this->id;
         }
 
         $this->getGoogleCalendar($this->calendarId)->deleteEvent($eventId);
@@ -174,7 +174,7 @@ class Event
      */
     protected static function getGoogleCalendar($calendarId = null)
     {
-        if($calendarId){
+        if(!isset($calendarId) || empty($calendarId)){
             $calendarId = config('laravel-google-calendar.calendar_id');
         }
 
@@ -215,8 +215,8 @@ class Event
 
     protected function getFieldName($name)
     {
-        if($name){
-            return [
+        try{
+            $fieldName = [
                 'name'          => 'summary',
                 'description'   => 'description',
                 'startDate'     => 'start.date',
@@ -224,9 +224,14 @@ class Event
                 'startDateTime' => 'start.dateTime',
                 'endDateTime'   => 'end.dateTime',
             ][$name];
-        }
 
-        return $name;
+            return $fieldName;
+
+        }catch(\Exception $e){
+
+            return $name;
+
+        }
     }
 
     public function getSortDate()
