@@ -57,7 +57,7 @@ The best postcards will get published on the open source page on our website.
 You can install the package via composer:
 
 ```bash
-composer require spatie/laravel-google-calendar
+composer require ecasanes/laravel-google-calendar-php-6
 ```
 
 Next up the service provider must be registered:
